@@ -1,0 +1,9 @@
+# mongodb
+spring:
+  data:
+    mongodb:
+      uri: "mongodb+srv://wsuser:1234ws@wsoauth2.jbmtn.mongodb.net/b2w?authSource=admin&replicaSet=atlas-va9g02-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true"
+
+service:
+  StarWarsSwapi:
+    url: "https://swapi.dev/api"
