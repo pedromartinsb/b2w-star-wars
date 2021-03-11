@@ -3,7 +3,6 @@ package br.com.pedrom.starwars.dto;
 import java.io.Serializable;
 
 import br.com.pedrom.starwars.domain.Planet;
-import lombok.Builder;
 import lombok.Data;
 
 @Data

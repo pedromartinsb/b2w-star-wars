@@ -1,8 +1,9 @@
-package br.com.pedrom.starwars.controller.exception;
+package br.com.pedrom.starwars.controller.exception.handler;
 
-import br.com.pedrom.starwars.services.exceptions.ObjectAlreadyExistException;
-import br.com.pedrom.starwars.services.exceptions.ObjectNotEnabledException;
-import br.com.pedrom.starwars.services.exceptions.ObjectNotFoundException;
+import br.com.pedrom.starwars.controller.exception.StandardError;
+import br.com.pedrom.starwars.services.exception.ObjectAlreadyExistException;
+import br.com.pedrom.starwars.services.exception.ObjectNotEnabledException;
+import br.com.pedrom.starwars.services.exception.ObjectNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

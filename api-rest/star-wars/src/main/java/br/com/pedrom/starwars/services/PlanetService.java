@@ -1,19 +1,19 @@
 package br.com.pedrom.starwars.services;
 
+import br.com.pedrom.starwars.domain.Planet;
+import br.com.pedrom.starwars.dto.PlanetDTO;
+import br.com.pedrom.starwars.feign.response.StarWarsSwapiResponse;
+import br.com.pedrom.starwars.feign.service.APIStarWarsSwapiService;
+import br.com.pedrom.starwars.repository.PlanetRepository;
+import br.com.pedrom.starwars.services.exception.ObjectNotFoundException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
-import br.com.pedrom.starwars.dto.PlanetDTO;
-import br.com.pedrom.starwars.feign.response.StarWarsSwapiResponse;
-import br.com.pedrom.starwars.feign.service.APIStarWarsSwapiService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import br.com.pedrom.starwars.domain.Planet;
-import br.com.pedrom.starwars.repository.PlanetRepository;
-import br.com.pedrom.starwars.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class PlanetService {
@@ -29,8 +29,17 @@ public class PlanetService {
         return repository.findAll();
     }
 
+    public Page<Planet> findAllPaged(Pageable paginacao) {
+        return repository.findAll(paginacao);
+    }
+
     public Planet findById(String id) {
         Optional<Planet> planet = repository.findById(id);
+        return planet.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado!"));
+    }
+
+    public Planet findByName(String name) {
+        Optional<Planet> planet = repository.findByName(name);
         return planet.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado!"));
     }
 

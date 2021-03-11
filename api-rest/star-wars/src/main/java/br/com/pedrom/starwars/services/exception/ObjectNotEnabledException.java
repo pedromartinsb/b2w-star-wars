@@ -1,4 +1,4 @@
-package br.com.pedrom.starwars.services.exceptions;
+package br.com.pedrom.starwars.services.exception;
 
 import java.io.Serializable;
 
